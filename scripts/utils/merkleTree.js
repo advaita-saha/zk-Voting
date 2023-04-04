@@ -12,7 +12,7 @@
  * @param {Function} nodeHash Takes two inputs (left and right node and hashes it
  * @returns {MerkleTree} a Merkle tree with functionalities
  */
-export default function(input, leafHash, nodeHash) {
+async function merkleTree(input, leafHash, nodeHash) {
 
     /**
      * Calculates all nodes of the Merkle tree
@@ -46,7 +46,7 @@ export default function(input, leafHash, nodeHash) {
 
     /**
      * @typedef {Object} MerkleProof
-     * @property {Array<Number>} proof.path Path describes whenever lemma should hashed be left (0) or right (1)
+     * @property {Array<Number>} proof.circompath Path describes whenever lemma should hashed be left (0) or right (1)
      * @property {Array<any>} proof.lemma Lemma contains alle required Merkle nodes. Type depends on hash function.
      * @property {Function} proof.validate Function to recalculate the Merkle proof for validation purpose.
      */
@@ -100,6 +100,11 @@ export default function(input, leafHash, nodeHash) {
         proof.path = path;
         proof.lemma = lemma;
         proof.calculateRoot = calculateRoot;
+        proof.circompath = [];
+
+        for(let i = 0; i < proof.path.length; i++){
+            proof.circompath.push(proof.path[i]);
+        }
 
         return proof;
     }
@@ -123,3 +128,5 @@ export default function(input, leafHash, nodeHash) {
 
     return merkle;
 }
+
+module.exports = { merkleTree };
