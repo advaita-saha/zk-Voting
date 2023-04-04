@@ -1,9 +1,11 @@
 const { groth16 } = require("snarkjs");
 const { generateProof } = require("./utils/generateProof.js");
 const { verify } = require("./utils/verify.js");
+const { downloadProof } = require("./utils/downloadProof.js");
 
 async function main() {
-    const { proof, publicSignals } = await generateProof("0x3c1cBdC9b2b1b4BbB4C1cBdC9b2b1b4Bbv4C1cBd");
+    const { proof, publicSignals } = await generateProof("0xF8Ce204a11f1f9e0e939eAd56fbda2f3223cDF79");
+    downloadProof(proof);
     await verify(proof, publicSignals);
 }
 

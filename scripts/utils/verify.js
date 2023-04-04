@@ -14,5 +14,4 @@ async function verify(proof, publicSignals) {
     }
 }
 
-
 module.exports = { verify };
