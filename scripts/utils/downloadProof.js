@@ -1,15 +1,18 @@
 const appRoot = require('app-root-path');
 const fs = require('fs');
+//var QRCode = require('qrcode');
 
-function downloadProof(proof) {
-    var jsonObj = JSON.stringify(proof, null, 4);
-    fs.writeFile(`${appRoot}/proof.json`, jsonObj, 'utf8', function (err) {
-        if (err) {
-            console.log("An error occured while writing JSON Object to File.");
-            return console.log(err);
-        }
-        console.log("\nProof have been successfully downloaded\n");
-    });
+async function download(proof, filename) {
+    var jsonObj = JSON.stringify(proof, null);
+    
+    try {
+        //QRCode.toFile(`${appRoot}/${filename}.png`, jsonObj);
+        fs.writeFileSync(`${appRoot}/${filename}.json`, jsonObj, 'utf8');
+        console.log("\nSuccessfully Downloaded\n");
+    } catch (error) {
+        console.log(error);
+    }
+    
 }
 
-module.exports = { downloadProof };
+module.exports = { download };

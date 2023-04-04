@@ -43,9 +43,3 @@ async function generateProof(addr){
 }
 
 module.exports = { generateProof };
-// generateProof("0x2fc2dFbD4a3bAaC9b2C1fE7d7Bb7e505a4c5D447")
-//   .then(() => process.exit(0))
-//   .catch((error) => {
-//     console.error(error);
-//     process.exit(1);
-//   });

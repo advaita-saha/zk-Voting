@@ -5,7 +5,7 @@ include "./merkleTree.circom";
 
 template Vote(depth) {
     signal input votingID;
-    //signal input addr;
+
     signal input lemma[depth+2];
     signal input path[depth];
     signal input nullifier;
