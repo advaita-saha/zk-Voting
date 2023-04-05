@@ -1,4 +1,4 @@
-# A Complete Annonymous Voting System built with zk-SNARKS
+# Annonymous Voting System built with zk-SNARKS
 
 ![alt text](img/dia.png)
 
