@@ -1,5 +1,7 @@
 # A Complete Annonymous Voting System built with zk-SNARKS
 
+![alt text](https://ibb.co/Yy1trYG)
+
 Paper-based voting (like the Elections) is a very expensive way of voting. I have no exact data, but it costs billions of dollars, and it is always in the air that somebody cheated it.
 A blockchain-based system costs only a fraction of this price, and it is super secure because the blockchain is public and everybody can track everything on it.
 The only thing that is untrackable is that who voted to which party thanks to the zero-knowledge proof (for a more detailed explanation, please read my previous article). So, blockchain-based voting seems like the holy grail of voting.
