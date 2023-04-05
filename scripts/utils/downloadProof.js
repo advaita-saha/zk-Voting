@@ -8,7 +8,7 @@ async function download(proof, filename) {
     try {
         //QRCode.toFile(`${appRoot}/${filename}.png`, jsonObj);
         fs.writeFileSync(`${appRoot}/${filename}.json`, jsonObj, 'utf8');
-        console.log("\nSuccessfully Downloaded\n");
+        console.log(`\n${filename} Successfully Downloaded\n`);
     } catch (error) {
         console.log(error);
     }

@@ -8,9 +8,12 @@
     "build": "mkdir ./circuits/build && circom ./circuits/circuit.circom --r1cs --wasm -o ./circuits/build",
     "setup": "mkdir ./circuits/build/keys && npx snarkjs groth16 setup ./circuits/build/circuit.r1cs powersOfTau28_hez_final_12.ptau ./circuits/build/keys/circuit_0000.zkey && npx snarkjs zkey export verificationkey ./circuits/build/keys/circuit_0000.zkey ./circuits/build/keys/verification_key.json",
     "verify": "node ./scripts/main.js",
-    "generateVerifier": "npx snarkjs zkey export solidityverifier ./circuits/build/keys/circuit_0000.zkey ./contracts/Verifier.sol",
-    "clean": "rm -rf ./circuits/build",
-    "voterData": "node ./scripts/utils/genVoterData.js"
+    "generate-solidity": "npx snarkjs zkey export solidityverifier ./circuits/build/keys/circuit_0000.zkey ./contracts/Verifier.sol",
+    "clean": "rm -rf ./circuits/build ticket.json",
+    "load-voter-data": "node ./scripts/utils/genVoterData.js",
+    "start-poll": "npm run build && npm run setup && npm run generate-solidity && npm run load-voter-data",
+    "download-ticket": "node ./scripts/getTicket.js",
+    "vote": "node ./scripts/vote.js"
   },
   "author": "Advaita Saha",
   "license": "MIT",
